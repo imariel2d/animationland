@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Poppins:wght@400;600&family=Rubik:wght@400;500;700&display=swap');
+
+*{
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  counter-reset: score;
+
+  --bunny-width: 80px;
+}
+input[type="checkbox"] {
+  appearance: none;
+  cursor: pointer;
+  height: 50px;
+  margin: 0;
+  position: relative;
+  top: 0;
+  width: 80px;
+  z-index: 2;
+}
+input[type="checkbox"]:checked {
+  counter-increment: score;
+}
+.score::after {
+  content: counter(score);
+}
+.phone {
+  position: relative;
+  border: 8px solid black;
+  border-radius: 40px;
+  min-height: 600px;
+  width: 300px;
+  background: #CCEFFF;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 22px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  text-align: center;
+}
+.layer-1 {
+  position: absolute;
+  z-index: 1;
+  height: 450px;
+  width: var(--bunny-width);
+  bottom: 0;
+  right: 60px;
+  animation: layer 1s ease-in-out infinite;
+}
+.layer-2 {
+  position: absolute;
+  z-index: 2;
+  height: 450px;
+  width: var(--bunny-width);;
+  bottom: 0;
+  left: 60px;
+  animation: layer 1s ease-in-out infinite 0.2s;
+}
+.layer-3 {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  width: 220px;
+  height: 400px;
+  background: wheat;
+  /*temp*/
+  border: 1px solid black;
+}
+.layer-4 {
+  position: absolute;
+  z-index: 4;
+  bottom: 0;
+  left: 25px;
+  height: 350px;
+  width: var(--bunny-width);;
+  animation: layer 1s ease-in-out infinite;
+}
+.layer-5 {
+  position: absolute;
+  z-index: 5;
+  bottom: 0;
+  left: 0;
+  height: 300px;
+  width: 200px;
+  background: wheat;
+
+  /*temp*/
+  border: 1px solid black;
+}
+.layer-6 {
+  position: absolute;
+  z-index: 6;
+  right: 25px;
+  bottom: 0;
+  height: 200px;
+  width: var(--bunny-width);
+  animation: layer 1s ease-in-out infinite 0.2s;
+}
+.layer-7 {
+  position: absolute;
+  z-index: 7;
+  right: 0;
+  bottom: 0;
+  width: 150px;
+  height: 150px;
+  background: wheat;
+  /*temp*/
+  border: 1px solid black;
+}
+.layer-8 {
+  position: absolute;
+  z-index: 8;
+}
+.layer-9 {
+  position: absolute;
+  z-index: 9;
+}
+.layer-10 {
+  position: absolute;
+  z-index: 10;
+}
+.left-ear--outer {
+  background: white;
+  border-radius: 90%;
+  width: 20px;
+  height: 50px;
+  position: absolute;
+  left: 10px;
+  top: 0;
+}
+.left-ear--inner {
+  background: pink;
+  border-radius: 90%;
+  width: 10px;
+  height: 50px;
+  position: absolute;
+  left: 15px;
+  top: 8px;
+}
+.right-ear--outer {
+  background: white;
+  border-radius: 90%;
+  width: 20px;
+  height: 50px;
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+.right-ear--inner {
+  background: pink;
+  border-radius: 90%;
+  width: 10px;
+  height: 50px;
+  position: absolute;
+  right: 15px;
+  top: 8px;
+}
+.head {
+  background: white;
+  border-radius: 50%;
+  height: 80px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  position: absolute;
+  top: 30px;
+  width: 100%;
+}
+.head__eye {
+  background: gray;
+  border-radius: 50px;
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 12px;
+
+  animation-name: blink;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+  0% {
+    height: 5px;
+  }
+  5% {
+    transform: translate(0px, 1px);
+    height: 1px;
+  }
+  10% {
+    transform: translate(0px, 0px);
+    height: 5px;
+  }
+}
+
+.head__eye--left {
+  left: 30px;
+}
+.head__eye--right {
+  right: 30px;
+}
+.zigzag {
+  background:
+    linear-gradient(135deg, teal 25%, transparent 25%) -50px 0,
+    linear-gradient(-135deg, teal 25%, transparent 25%) -50px 0,
+    linear-gradient(45deg, teal 25%, transparent 25%),
+    linear-gradient(-45deg, teal 25%, transparent 25%);
+  background-size: 100px 100px;
+  height: 100%;
+}
+
+@keyframes layer {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: -60px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
